@@ -7,7 +7,5 @@ Welcome to my ICS3U portfolio. I’ll use this site to post my work and reflecti
 - 📝 Blog/Reflection: [Reflection #1](./posts/first_reflection.md)
 
 ## About me
-A short intro (interests, goals, tools I’m learning).
-
----
-*Update this page by editing `index.md` in your repository.*
+A short intro 
+Hello, my name is Almir. I am a student at Port Credit SS. Some hobbies I enjoy are playing sports, eating and cooking. 
