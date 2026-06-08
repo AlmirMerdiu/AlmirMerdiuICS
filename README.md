@@ -1,5 +1,5 @@
-# Portfolio-template
-This is a Portfolio Template - to be used by students taking Ms. Kim's ICS3U OR ICS4U.
+
+ICS3U CULMINATING LOG ENTRIES
 
 Welcome! This is your starting point for creating your GitHub Pages portfolio.  
 
