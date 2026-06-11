@@ -21,7 +21,7 @@ float rightBubble1 = 500 - (frameCount % 400);
 ```
 
 b) Application & Purpose
-
+--
 Different variable types were needed to handle specific tasks within program:
 
 color (Theme): Stores color data globally. This keeps the it consistent and lets me update the game's entire color palette by changing a single line of code.
@@ -33,15 +33,15 @@ float (Animations): Decimal numbers track positions for moving visual. This prev
 int : Whole numbers calculate pixel-perfect grid locations on the screen, preventing decimal rounding errors during screen math.
 
 c) Challenges & Fixes
+--
 Challenge 1: Global Variable Overwriting
 
 The Issue: I tried using one global boolean variable for isHovering inside the main draw() loop. Because the program draws buttons one after the other, the last button always overwrote the variable. This meant only the bottom button changed colors when hovered, while the others did nothing.
 
 The Resolution: I moved the variable out of the global scope. Instead, I made isHovering a local variable inside the custom drawMenuButton() function. This separate calculation isolates the math for each button so they work independently.
 
-Challenge 2: Integer Division Errors
+Challenge 2: Overlapping Button Collisions
 
-The Issue: When trying to position buttons evenly across the screen, I used fractions like 1/3 and 2/3 with my int variables. In programming, dividing integers like 1/3 rounds straight down to 0. This made my layout coordinates multiply by zero, causing the text to disappear off-screen.
+The Problem: At first, I used simple if statements to check if the mouse coordinates crossed a single line. Because multiple buttons were stacked vertically, the boundaries overlapped. Moving the mouse would trigger multiple buttons to highlight at the exact same time, which confused the player.
 
-The Resolution: I fixed this by using decimals (float) like 0.33 instead of fractions. I then converted the final calculation back into a whole number using int() so the pixels lined up perfectly.
-
+The Fix: I fixed this by using a conditional statement with the logical AND operator (&&). I checked both the horizontal and vertical ranges together: if (mouseX > x - 150 && mouseX < x + 150 && mouseY > y - 35 && mouseY < y + 35). This created a box so only one button can be highlighted at a time.
