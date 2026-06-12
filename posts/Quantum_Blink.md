@@ -135,6 +135,34 @@ The Problem: When I first tried to loop through my enemy array setups inside the
 
 The Fix: I resolved this by adding a  validation block before running the loops. By wrapping the array processors inside a quick selection check—if(Aspid != null)—the program safely ignores the loop block if the array structure hasn't been instantiated for that layout yet.
 
+## Learning Log 4: Arrays & Data Structures
+
+### a) Concept Implemented
+I implemented **Arrays** to group related variables together under a single identifier. I utilized primitive collections like `PImage[]` arrays to handle character animations, alongside object arrays like `Deepling[]` and `Aspid[]` to manage and spawn groups of dynamic enemies within the game loop.
+
+```java
+// Allocating fixed sizes for animation sequences
+PImage walking[] = new PImage[6];
+PImage aspid[] = new PImage[4];
+
+// Declaring dynamic object arrays for enemy spawn systems
+Deepling[] Deepling;
+Aspid[] Aspid;
+```
+### b) Application & Purpose
+I could use the structured array concept to make my code succinct and scalable:
+
+Sprite Animation State Machine (PImage[]): Instead of creating individual objects like walk1, walk2, and walk3 representing Bill Nylon's animations, I placed them in sequential order within the walking[] array. Using a frame integer that updates based on game time, I am able to animate the character in just one line of code: image(walking[frame], SX, SY);.
+
+Enemy Objects: In order to process many enemies simultaneously within a game level, I created object arrays using my custom classes. Without having to process each individual enemy manually, I created a for loop that would check the length of the current array to process attacks and movement of each monster generated onto the canvas.
+
+### c) Problems & Solutions
+Problem 1: Null Pointer Exceptions due to Empty Arrays
+The Problem: My game was freezing up and crashing during its core drawing loop on certain levels with the exception of a NullPointerException. This would happen since the earlier levels such as Level 1 had no flying enemies (Aspid = new Aspid[0]), thus making the program crash at the point where it tried to access the .length of an uninitialized array.
+
+The Solution: The solution to this problem was implementing a conditional validity constraint prior to the array looping processes. By structurally enclosing the loops with a simple if statement (if(Aspid != null)), the code ensures that the process does not occur should the array not be initialized at that particular level map.
+
+
 ## Learning Log 5: Custom Functions & Error Checking/Restrictions
 
 ### a) Concept Implemented
