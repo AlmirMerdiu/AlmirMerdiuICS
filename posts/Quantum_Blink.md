@@ -56,10 +56,10 @@ if (isHovering) {
 }
 ```
 
-###b) Application & Purpose
+### b) Application & Purpose
 This particular if statement lies within my own drawMenuButton() function. The primary intention behind this logic structure is for it to immediately provide the user some visual confirmation that they have moved their mouse over a certain menu option. If the boolean isHovering is true, then the program will run through the first set of commands in which it will change the fill and stroke colors of the button in order to light it up. However, if the isHovering variable is not true, the second part of the code will be executed, leaving the button its default dark blue color.
 
-###c) Challenges & Fixes
+### c) Challenges & Fixes
 Challenge 1: Conflicts of Overlapping Buttons
 
 Problem: Initially, I had an if condition that only checked the mouse coordinates with respect to a line crossing horizontally. This was due to the overlapping range because of multiple buttons positioned above each other vertically. As a result, movement of the mouse triggered multiple buttons to be highlighted at the same time.
@@ -89,14 +89,14 @@ for (int i = 0; i < 400; i = i + 20) {
   line(i, 400, i + 10, 410);
 }
 ```
-###b) Application & Purpose
+### b) Application & Purpose
 Background Grid Lines: Instead of manually calculating and writing out hundreds of separate line() coordinates to fill the screen, I used two for loops. The loops initialize a counting variable at 0 and step forward by 40 pixels on each go. On every turn of the loop, it draws a line across the canvas relative to the system's width and height. It stops executing automatically as soon as the index variable passes the screen.
 
 Hazard Stripes: Inside drawMapForegroundLevel1(), I used a for loop to draw caution stripes on the platform edges. It starts at pixel 0 and stops at pixel 400, drawing a small slanted line every 20 pixels. This lets me generate a long pattern instantly using just a few lines of code.
 
 My reasoning for using loops here was to keep the code organized and easy to change. If I ever want to change the grid tile size from 40 pixels to 20 pixels, I only have to change the increment value in the loop header instead of rewriting the entire background script.
 
-###c) Challenges & Fixes
+### c) Challenges & Fixes
 
 Challenge 1: Infinite Loop Game 
 
